@@ -11,6 +11,7 @@
 ## 1. 技术栈与环境
 
 **后端**
+
 - Python 3.12+ / FastAPI + Uvicorn
 - SQLAlchemy 2.0（异步）+ aiomysql
 - Alembic（数据库迁移）
@@ -19,13 +20,16 @@
 - Lint/Format：ruff（替代 flake8 + black）
 
 **前端**
+
 - Vue 3 + TypeScript / Vue Router 4
 - Vite 5（构建 + 开发代理）/ vue-tsc（类型检查）
 
 **数据库**
+
 - MySQL 8.0
 
 **基础设施**
+
 - Docker + Docker Compose（三容器编排：backend / frontend / db）
 - Nginx（前端静态服务 + `/api` 反向代理到后端）
 
@@ -70,14 +74,17 @@ xxx/
 ## 1.3 MySQL 数据库规范
 
 ### 表命名
+
 - 表名全小写，单词间用下划线分隔
 - 表名以功能模块为前缀，同一模块前缀保持一致
   - 示例：`quant_price_record`、`quant_strategy_config`
 
 ### 字段命名
+
 - 字段名全小写，单词间用下划线分隔
 
 ### 必备审计列
+
 - 每张表末尾必须包含以下两列：
 
 ```sql
@@ -98,6 +105,7 @@ update_time: Mapped[datetime] = mapped_column(
 ```
 
 ### NOT NULL 约束
+
 - 所有字段必须声明为 `NOT NULL`，需要时指定合理的默认值
 - ORM 模型中对应使用 `nullable=False`
 
